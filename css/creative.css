@@ -33,7 +33,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #EA3556;
+  color: #26675f;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -199,9 +199,6 @@ header {
 
 header .profile-pic {
   display: block;
-  float: left;
-  margin-top: -80px;
-  margin-right: 40px;
 }
 
 .profile-pic > img {
@@ -215,14 +212,14 @@ header .header-content {
     width: 100%;
     padding: 100px 15px;
     margin-top: 50px;
-    font-family: 'Overlock';
+    font-family: 'Averia Sans Libre', "Overlock";
     text-align: center;
 }
 
 .header-content-inner-info {
   text-shadow: 0 0 3px #000;
   display: block;
-  float: left;
+  margin-top: 20px;
 }
 
 .header-content-inner-info span {
@@ -232,7 +229,7 @@ header .header-content {
 header .header-content .header-content-inner h3 {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'Overlock';
+    font-family: 'Averia Sans Libre', "Overlock";
     font-size: 36px;
 }
 
@@ -262,8 +259,7 @@ header .header-content .header-content-inner p {
     }
 
     header .header-content .header-content-inner {
-        margin-right: auto;
-        margin-left: auto;
+        margin: 40px auto;
         max-width: 1000px;
     }
 
