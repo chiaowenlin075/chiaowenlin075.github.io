@@ -39,6 +39,7 @@ i.close-snake {
   font-weight: bold;
   position: absolute;
   right: 50px;
+  top: 20px;
   z-index: 3100;
   color: #fff;
   cursor: pointer;

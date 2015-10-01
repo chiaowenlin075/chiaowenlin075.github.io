@@ -84,7 +84,7 @@
                       Besides coding, I enjoy music, accordion and also traveling!
                     </p>
                     <div class="about-pics">
-                      <img src="img/about/accordion.jpg" alt="accordion">
+                      <img src="img/about/accordion2.jpg" alt="accordion">
                       <img src="img/about/travel1.jpg" alt="UK">
                       <img src="img/about/travel2.jpg" alt="Taiwan">
                     </div>
@@ -179,6 +179,7 @@
                   <div class="project-box group">
                       <div class="project-pic">
                         <img src="img/project/mumblr.gif" class="img-responsive" alt="">
+                        <figcaption>Check out here!</figcaption>
                         <div class="project-hover">
                           <div class="project-hover-content group">
                             <a href="http://www.mumblrr.com" target="_blank">LIVE</a>
@@ -206,6 +207,7 @@
                   <div class="project-box group">
                       <div class="project-pic">
                         <img src="img/project/snake.png" class="img-responsive" alt="">
+                        <figcaption>Check out here!</figcaption>
                         <div class="project-hover">
                           <div class="project-hover-content group">
                             <button class="show-snake">LIVE</button>
@@ -232,6 +234,7 @@
                   <div class="project-box group">
                       <div class="project-pic">
                         <img src="img/project/rails_lite.png" class="img-responsive" alt="">
+                        <figcaption>Check out here!</figcaption>
                         <div class="project-hover">
                           <div class="project-hover-content group">
                             <a href="https://github.com/chiaowenlin075/Rails-Lite" target="_blank"><i class="fa fa-github">GitHub</i></a>
@@ -301,11 +304,13 @@
     <script>
     (function(){
       var game = new Snakes.View(new Snakes.Board(12, 0.5), $(".snake-content"));
-      $("body").on("click", ".show-snake", function(){
+      $("body").on("click", ".show-snake", function(event){
+        event.preventDefault();
         var yPos = $(document).height() - $(".project-snake").position().top + 100;
         $(".snake").removeClass("hide").css({ "top": -yPos });
       });
-      $(".snake").on("click", "i.close-snake", function(){
+      $(".snake").on("click", "i.close-snake", function(event){
+        event.preventDefault();
         $(".snake").addClass("hide");
       });
 
