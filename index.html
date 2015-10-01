@@ -18,6 +18,8 @@
 
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
     <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/snake.css" type="text/css">
+
 </head>
 
 <body id="page-top">
@@ -79,6 +81,7 @@
                       I enjoy solving problems, tackling difficult challenges, and learning new technologies.
                       I hold a MS degree in Mechanical engineering at UCLA, and the school works and projects in UCLA have strengthened my interest in programming.
                       After graduating, I decided to pursue programming as my career, and as my life style!
+                      Besides coding, I enjoy music, accordion and also traveling!
                     </p>
                 </div>
             </div>
@@ -194,27 +197,27 @@
                   </div>
                 </div>
 
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-6 project-snake">
                   <div class="project-box group">
                       <div class="project-pic">
-                        <img src="img/project/mumblr.gif" class="img-responsive" alt="">
+                        <img src="img/project/snake.png" class="img-responsive" alt="">
                         <div class="project-hover">
                           <div class="project-hover-content group">
-                            <a href="https://www.mumblrr.com" target="_blank">LIVE</a>
-                            <a href="https://github.com/chiaowenlin075/mumblr" target="_blank"><i class="fa fa-github">GitHub</i></a>
+                            <!-- <a href="https://www.mumblrr.com" target="_blank">LIVE</a> -->
+                            <button class="show-snake">LIVE</button>
+                            <a href="https://github.com/chiaowenlin075/Snake.js" target="_blank"><i class="fa fa-github">GitHub</i></a>
                           </div>
                         </div>
                       </div>
                       <div class="project-box-caption">
                         <div class="project-name text-faded">
-                            Asteroids <span>(JavaScript, HTML5 Canvas)</span>
+                            Snake <span>(JavaScript, jQuery, CSS)</span>
                         </div>
                         <div class="project-description">
                             <p>
                               A browser-based shooting game written primary with JavaScript and jQuery<br>
-                              •	Apply class inheritance for DRY, maintainable code<br>
-                              •	Implement physics dynamics for collisions and movements<br>
-                              •	Wrote in concise logic and descriptive code<br>
+                              •	Applies jQuery to handle user input and manage DOM elements<br>
+                              •	Writes with concise logic and descriptive code<br>
                             </p>
                         </div>
                      </div>
@@ -224,7 +227,7 @@
                 <div class="col-lg-4 col-sm-6">
                   <div class="project-box group">
                       <div class="project-pic">
-                        <img src="img/project/rails_lite.gif" class="img-responsive" alt="">
+                        <img src="img/project/rails_lite.png" class="img-responsive" alt="">
                         <div class="project-hover">
                           <div class="project-hover-content group">
                             <a href="https://github.com/chiaowenlin075/Rails-Lite"  class="only-github" target="_blank"><i class="fa fa-github">GitHub</i></a>
@@ -266,6 +269,14 @@
             </div>
         </div>
     </section>
+    <div class="snake hide">
+      <div class="block-modal"></div>
+      <i class="close-snake">&times;</i>
+      <section id="snake-game">
+        <h1>Snake</h1>
+        <div class="snake-content"></div>
+      </section>
+    </div>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -280,6 +291,22 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+    <script src="snake/snake-core.js"></script>
+    <script src="snake/snake-view.js"></script>
+
+    <script>
+    (function(){
+      var game = new Snakes.View(new Snakes.Board(12, 0.5), $(".snake-content"));
+      $("body").on("click", ".show-snake", function(){
+        var yPos = $(document).height() - $(".project-snake").position().top + 100;
+        $(".snake").removeClass("hide").css({ "top": -yPos });
+      });
+      $(".snake").on("click", "i.close-snake", function(){
+        $(".snake").addClass("hide");
+      });
+
+    })();
+    </script>
 
 </body>
 

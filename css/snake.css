@@ -1,0 +1,127 @@
+.snake {
+  position: relative;
+}
+
+section#snake-game {
+  position: relative;
+  z-index: 3000;
+  color: #fff;
+  font-family: "Averia Sans Libre";
+  text-align: center;
+  padding: 30px;
+  font-size: 60px;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+#snake-game h1 {
+  margin-bottom: 10px;
+  font-family: "Averia Sans Libre";
+  font-size: 42px;
+  font-weight: bold;
+}
+
+#snake-game ul {
+  list-style: none;
+  box-sizing: content-box;
+  padding: 0;
+}
+
+.snake-content {
+  margin: 20px auto;
+  position: relative;
+  max-width: 750px;
+  min-height: 375px;
+}
+
+i.close-snake {
+  font-size: 50px;
+  position: absolute;
+  right: 50px;
+  z-index: 3100;
+  color: #fff;
+  cursor: pointer;
+}
+
+.snake-grid {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 3px solid black;
+  width: 360px;
+  height: 360px;
+  background: #c5bd09;
+}
+
+.snake-grid > li {
+  float: left;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  border: 3px solid black;
+}
+
+.snake-body {
+  background: #014c00;
+}
+
+.apple {
+  background: red;
+}
+
+.snake-game {
+  position: relative;
+}
+
+.button-choices button,
+.play-again {
+  padding: 3px 10px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  color: #fff;
+  background: #3EABA9;
+  opacity: 0.7
+}
+
+.button-choices {
+  padding: 20px;
+  width: 120px;
+  float: left;
+}
+
+.botton-choices > button, .play-again {
+  float: left;
+  margin
+}
+
+.button-choices button:active, .play-again {
+  top: 3px;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.button-choices button:hover, .play-again {
+  opacity: 1;
+}
+
+#snake-game h2 {
+  font-family: "Averia Sans Libre";
+  font-size: 36px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 18%;
+}
+
+#snake-game .score {
+  left: 0;
+}
+
+#snake-game .lose-msg {
+  left: 50%;
+  font-size: 46px;
+  transform: translate(-50%);
+  text-shadow: 1px 1px 10px #000;
+}

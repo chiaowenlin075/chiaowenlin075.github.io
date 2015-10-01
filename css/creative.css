@@ -52,6 +52,19 @@ p {
   clear: both;
 }
 
+.block-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hide {
+  display: none;
+}
+
 .bg-primary {
   background-color: #45AEA4;
 }
@@ -325,6 +338,7 @@ header .header-content .header-content-inner p {
   max-width: 480px;
   float: left;
   position: relative;
+  border: 2px solid #eee;
 }
 
 .project-hover {
@@ -351,7 +365,9 @@ header .header-content .header-content-inner p {
   width: 90%;
 }
 
+.project-hover-content > button,
 .project-hover-content > a {
+  border: 0;
   display: block;
   float: left;
   padding: 6px 14px;
