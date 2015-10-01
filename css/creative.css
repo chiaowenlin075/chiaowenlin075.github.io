@@ -87,7 +87,7 @@ aside {
 }
 
 .no-padding {
-  padding: 0;
+  padding: 30px 0;
 }
 
 #mainNav {
@@ -281,6 +281,20 @@ header .header-content .header-content-inner p {
     }
 }
 
+#about p {
+  margin: 10px;
+}
+
+#about {
+  padding-bottom: 60px;
+}
+
+.about-pics img {
+  width:  200px;
+  margin: 20px;
+  border-radius: 5px;
+}
+
 .section-heading {
     margin-top: 0;
 }
@@ -362,7 +376,7 @@ header .header-content .header-content-inner p {
 
 .project-hover-content {
   margin: auto;
-  width: 90%;
+  display: inline-block;
 }
 
 .project-hover-content > button,
@@ -375,8 +389,11 @@ header .header-content .header-content-inner p {
   background-color: rgba(55,161,149,.75);
   color: #fff;
   border-radius: 3px;
-  margin-right: 30px;
-  margin-left: 40px;
+}
+
+.project-hover-content > a:first-child,
+.project-hover-content > button:first-child {
+  margin-right: 20px;
 }
 
 .project-hover-content > a:hover {
@@ -387,13 +404,6 @@ header .header-content .header-content-inner p {
 .project-hover-content > a:active {
   position: relative;
   top: 3px;
-}
-
-.project-hover-content > a.only-github {
-  margin: 0;
-  left: 50%;
-  position: relative;
-  transform: translateX(-50%);
 }
 
 .project-hover-content .fa-github:before {
