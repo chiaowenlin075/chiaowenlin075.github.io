@@ -4,31 +4,44 @@
   }
 
   var View = Snakes.View = function (board, $el) {
-    this.board = board;
     this.$el = $el;
+    this.$snakeContent = this.$el.find(".snake-content");
+    this.board = board;
+    this.highestScore = 0;
     this.initialize();
-    this.handleChooseSpeed();
-    this.handlekeypress();
-    this.playAgain();
+    this.bindHandlers();
   };
 
   View.prototype.initialize = function(){
     this.setupBoard();
     this.speedOptionButton();
+    this.$el.find(".highest-score").remove();
+    var $highScore = $("<h3 class='highest-score'>");
+    $highScore.text("Your highest score: " + this.highestScore);
+    $highScore.insertBefore(this.$snakeContent);
+  };
+
+  View.prototype.bindHandlers = function(){
+    this.handleChooseSpeed();
+    this.handlekeypress();
+    this.playAgain();
   };
 
   View.prototype.handleChooseSpeed = function () {
-    this.$el.on("click", "button.speed-option", function(e){
-      var option = $(e.currentTarget).data("speed");
+    this.$snakeContent.on("click", "button.speed-option", function(event){
+      event.preventDefault();
+      var option = $(event.currentTarget).data("speed");
       this.board.speed = option * 1000;
+      this.$snakeContent.find(".speed-choices").remove();
+      this.$snakeContent.append("<h2 class='score'>Score: " + this.board.score + "<h2>");
       this.makeMove();
     }.bind(this));
   };
 
   View.prototype.playAgain = function(){
-    this.$el.on("click", "button.play-again", function(event){
+    this.$snakeContent.on("click", "button.play-again", function(event){
       event.preventDefault();
-      this.$el.empty();
+      this.$snakeContent.empty();
       this.board = new Snakes.Board(12, 0.5);
       this.initialize();
     }.bind(this));
@@ -37,46 +50,46 @@
   View.prototype.makeMove = function () {
     var intervalId = setInterval(function(){
       this.board.snake.move();
-      this.board.eatApple();
-      this.render();
+      this.board.generateApple();
       if (!this.board.onBoard() || this.board.snake.eatSelf()) {
-        this.$el.append("<h2 class='lose-msg'>Oops, You died :(</h2>");
-        this.$el.append("<button class='play-again'>Play Again!</button>");
+        this.$snakeContent.append("<h2 class='lose-msg'>Oops, You died :(</h2>");
+        this.$snakeContent.append("<button class='play-again'>Play Again!</button>");
         clearInterval(intervalId);
       } else {
-        this.board.grid = this.board.makeGrid();
-        this.board.placeSnake();
-        this.board.placeApple();
+        this.render();
       }
     }.bind(this), this.board.speed);
   };
 
   View.prototype.setupBoard = function () {
-    var $ul = $("<ul></ul>").addClass("snake-grid group");
+    var $ul = $("<ul class='snake-grid group'>");
     for (var i = 0; i < this.board.grid.length; i++){
       for (var j = 0; j < this.board.grid.length; j++){
-        var $li = $("<li></li>").addClass("grid-square");
+        var $li = $("<li class='grid-square'>");
         $li.attr("data-pos", [i, j]);
         $ul.append($li);
       };
     };
-
-    this.$el.append($ul);
+    this.$snakeContent.append($ul);
   };
 
   View.prototype.speedOptionButton = function(){
-    var $fastOption = $("<button>Master</button>").addClass("speed-fast speed-option").data("speed", 0.07);
-    var $normalOption = $("<button>Regular</button>").addClass("speed-normal speed-option").data("speed", 0.2);
-    var $slowOption = $("<button>Beginner</button>").addClass("speed-slow speed-option").data("speed", 0.5);
-    var buttonDiv = $("<div></div>").addClass("button-choices group");
-    buttonDiv.append($fastOption, $normalOption, $slowOption);
-    this.$el.prepend(buttonDiv);
+    var $fastOption = $("<button>").text("Master")
+                                   .addClass("speed-fast speed-option")
+                                   .data("speed", 0.08);
+    var $normalOption = $("<button>").text("Regular")
+                                     .addClass("speed-normal speed-option")
+                                     .data("speed", 0.12);
+    var $slowOption = $("<button>").text("Beginner")
+                                   .addClass("speed-slow speed-option")
+                                   .data("speed", 0.5);
+    var $buttonDiv = $("<div class='speed-choices group'>");
+    $buttonDiv.append($fastOption, $normalOption, $slowOption);
+    this.$snakeContent.prepend($buttonDiv);
   };
 
   View.prototype.render = function(){
-    this.$el.empty();
-    this.setupBoard();
-
+    this.cleanUpBoard();
     var snakePos = this.board.snake.allPos();
     var apple = [this.board.apple.row, this.board.apple.col];
     snakePos.forEach(function(el){
@@ -84,12 +97,27 @@
     })
 
     $("[data-pos='" + apple + "']").addClass("apple");
-    this.$el.append("<h2 class='score'>Score: " + this.board.score + "</h2>");
+    this.$snakeContent.find(".score").text("Score: " + this.board.score);
+    if (this.highestScore < this.board.score){
+      this.highestScore = this.board.score;
+      this.$el.find(".highest-score")
+              .text("Your highest score: " + this.highestScore);
+    };
+  };
+
+  View.prototype.cleanUpBoard = function(){
+    this.$snakeContent.find(".grid-square")
+                      .removeClass("apple")
+                      .removeClass("snake-body");
   };
 
   View.prototype.handlekeypress = function(){
     $(document).on("keydown", function(event){
       event.preventDefault();
+      if (!this.board.snake.canTurn) { return; };
+      if ([37, 38, 39, 40].indexOf(event.keyCode) !== -1) {
+        this.board.snake.canTurn = false;
+      };
       switch (event.keyCode) {
         case 37:
           this.board.snake.turn("W");

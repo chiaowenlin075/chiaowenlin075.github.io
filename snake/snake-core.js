@@ -8,7 +8,7 @@
     this.snake = new window.Snakes.Snake();
     this.apple = new Snakes.Coord(5, 6);
     this.grid = this.makeGrid();
-    this.placeSnake();
+    this.placePieces();
     this.score = 0;
   };
 
@@ -23,12 +23,17 @@
     return grid;
   };
 
-  Board.prototype.placeSnake = function(){
-    this.snake.segments.forEach(function(coord){
-      this.grid[coord.row][coord.col] = "S";
-    }.bind(this));
+  Board.prototype.getPiece = function(pos){
+    return this.grid[pos[0]][pos[1]]
   };
 
+  Board.prototype.putPiece = function(pos, piece){
+    this.grid[pos[0]][pos[1]] = piece;
+  };
+
+  Board.prototype.empty = function(pos){
+    return typeof this.getPiece(pos) === 'undefined';
+  };
 
   Board.prototype.move = function(){
     var intervalId = setInterval(function(){
@@ -39,8 +44,7 @@
         clearInterval(intervalId);
       } else {
         this.grid = this.makeGrid();
-        this.placeSnake();
-        this.placeApple();
+        this.placePieces();
         this.render();
       }
     }.bind(this), this.speed * 1000);
@@ -63,30 +67,38 @@
 
   Board.prototype.onBoard = function() {
     var head = this.snake.segments[0];
-    return head.row >= 0 && head.row < this.size && head.col >= 0 && head.col < this.size;
+    return head.row >= 0 && head.row < this.size &&
+            head.col >= 0 && head.col < this.size;
   };
 
-  // Board.prototype.bindKeys = function() {
-  //   key('up', function() { this.snake.turn("N") }.bind(this));
-  //   key('down', function() { this.snake.turn("S") }.bind(this));
-  //   key('left', function() { this.snake.turn("W") }.bind(this));
-  //   key('right', function() { this.snake.turn("E") }.bind(this));
-  // };
-
   Board.prototype.eatApple = function(){
-    var head = this.snake.segments[0];
-    if (head.equals(this.apple)) {
-      this.score += Board.APPLESCORE;
-      var snakeLength = this.snake.segments.length;
-      var lastSeg = this.snake.segments[snakeLength - 1];
-      var secToLastSeg = this.snake.segments[snakeLength - 2];
-      this.snake.segments.push(Snakes.Coord.backwardCoord(secToLastSeg, lastSeg));
-      this.apple = Snakes.Coord.randomCoord(this.size, this.size);
-    };
+    var head = _.first(this.snake.segments);
+    if (head.equals(this.apple)) { return true };
+    return false;
+  };
+
+  Board.prototype.placeSnake = function(){
+    this.snake.segments.forEach(function(coord){
+      this.putPiece(coord.pos, coord);
+    }.bind(this));
   };
 
   Board.prototype.placeApple = function(){
-    this.grid[this.apple.row][this.apple.col] = "A";
+    this.putPiece(this.apple.pos, this.apple);
+  };
+
+  Board.prototype.generateApple = function(){
+    if (this.eatApple()){
+      this.score += Board.APPLESCORE;
+      this.snake.segments.push(Snakes.Coord.backwardCoord(this.snake.segments));
+      this.apple = Snakes.Coord.randomCoord(this);
+    };
+  };
+
+  Board.prototype.placePieces = function(){
+    this.generateApple();
+    this.placeSnake();
+    this.placeApple();
   };
 
 })();
@@ -98,6 +110,7 @@
   var Coord = window.Snakes.Coord = function(row, col){
     this.row = row;
     this.col = col;
+    this.pos = [row, col];
   };
 
   Coord.prototype.plus = function(dir){
@@ -108,15 +121,22 @@
     return this.row === otherCoord.row && this.col === otherCoord.col;
   };
 
-  Coord.randomCoord = function(maxX, maxY){
-    return new Coord(Coord.randomPos(maxX), Coord.randomPos(maxY));
+  Coord.randomCoord = function(board){
+    var newCoord;
+    do {
+      newCoord = new Coord(Coord.randomPos(board.size), Coord.randomPos(board.size));
+    } while (Coord.include(board.snake.segments, newCoord));
+
+    return newCoord;
   };
 
   Coord.randomPos = function(max){
     return Math.floor(Math.random() * max );
   };
 
-  Coord.backwardCoord = function(coord1, coord2) {
+  Coord.backwardCoord = function(coordAry) {
+    var coord1 = coordAry[coordAry.length - 2];
+    var coord2 = coordAry[coordAry.length - 1];
     if (coord1.row === coord2.row) {
       var colIncrement = coord2.col - coord1.col;
       return new Coord(coord2.row, coord2.col + colIncrement);
@@ -124,6 +144,13 @@
       var rowIncrement = coord2.row - coord1.row;
       return new Coord(coord2.row + rowIncrement, coord2.col);
     };
+  };
+
+  Coord.include = function(coordAry, otherCoord) {
+    for(var i = 0; i < coordAry.length; i++){
+      if (coordAry[i].equals(otherCoord)) { return true; };
+    };
+    return false;
   };
 
 })();
@@ -134,15 +161,16 @@
 
   var Snake = window.Snakes.Snake = function() {
     this.dir = "S";
+    this.canTurn = true;
     this.segments = [];
     this.putSnake();
   };
 
   Snake.DIRS = {
-    "W": [ 0,-1], // new Snakes.Coord( 0,-1);
-    "S": [ 1, 0], // new Snakes.Coord( 1, 0);
-    "E": [ 0, 1], // new Snakes.Coord( 0, 1);
-    "N": [-1, 0]  // new Snakes.Coord(-1, 0);
+    "W": [ 0,-1],
+    "S": [ 1, 0],
+    "E": [ 0, 1],
+    "N": [-1, 0]
   };
 
   Snake.prototype.putSnake = function(){
@@ -152,48 +180,38 @@
     };
   };
 
+  Snake.prototype.nextPos = function(){
+    return this.segments[0].plus(Snake.DIRS[this.dir]);
+  };
+
   Snake.prototype.move = function(){
     var notHeadPart = this.segments.slice(0, this.segments.length - 1);
-    var newHead = this.segments[0].plus(Snake.DIRS[this.dir]);
+    var newHead = this.nextPos();
     this.segments = [newHead].concat(notHeadPart);
   };
 
   Snake.prototype.validTurn = function(dir){
-    switch (this.dir) {
-      case "S" || "N":
-        if (dir === "S" || dir === "N"){ return false };
-        return true;
-      case "E" || "W":
-        if (dir === "E" || dir === "W"){ return false };
-        return true;
-      default:
-        return true;
-    }
+    NorS = ["N", "S"];
+    EorW = ["E", "W"];
+    return !(NorS.indexOf(dir) !== -1 && NorS.indexOf(this.dir) !== -1) &&
+            !(EorW.indexOf(dir) !== -1 && EorW.indexOf(this.dir) !== -1)
   };
 
   Snake.prototype.turn = function(dir){
     if (this.validTurn(dir)) {
       this.dir = dir;
     };
+    this.canTurn = true;
   };
 
   Snake.prototype.eatSelf = function(){
-    var head = this.segments[0];
-    for (var i = 1; i < this.segments.length; i++){
-      if(head.equals(this.segments[i])) {
-        return true
-      };
-    };
-    return false;
+    return Snakes.Coord.include(_.rest(this.segments), _.first(this.segments));
   };
 
   Snake.prototype.allPos = function(){
-    var pos = [];
-    this.segments.forEach(function(el){
-      pos.push([el.row, el.col]);
-    })
-
-    return pos;
+    return this.segments.map(function(coord){
+      return coord.pos;
+    });
   };
 
 })();

@@ -21,6 +21,12 @@ section#snake-game {
   font-weight: bold;
 }
 
+#snake-game h3 {
+  font-family: "Averia Sans Libre";
+  margin: 10px auto;
+  font-size: 24px;
+}
+
 #snake-game ul {
   list-style: none;
   box-sizing: content-box;
@@ -28,7 +34,7 @@ section#snake-game {
 }
 
 .snake-content {
-  margin: 20px auto;
+  margin: 0 auto 20px;
   position: relative;
   max-width: 750px;
   min-height: 375px;
@@ -71,11 +77,7 @@ i.close-snake {
   background: red;
 }
 
-.snake-game {
-  position: relative;
-}
-
-.button-choices button,
+.speed-choices button,
 .play-again {
   padding: 3px 10px;
   font-weight: bold;
@@ -86,24 +88,24 @@ i.close-snake {
   opacity: 0.7
 }
 
-.button-choices {
+.play-again {
+  position: absolute;
+  left: 0;
+}
+
+.speed-choices {
   padding: 20px;
   width: 120px;
   float: left;
 }
 
-.botton-choices > button, .play-again {
-  float: left;
-  margin
-}
-
-.button-choices button:active, .play-again {
+.speed-choices button:active, .play-again {
   top: 3px;
   box-shadow: none;
   opacity: 1;
 }
 
-.button-choices button:hover, .play-again {
+.speed-choices button:hover, .play-again {
   opacity: 1;
 }
 
@@ -123,6 +125,7 @@ i.close-snake {
 
 #snake-game .lose-msg {
   left: 50%;
+  top: 35%;
   font-size: 46px;
   transform: translate(-50%);
   text-shadow: 1px 1px 10px #000;
