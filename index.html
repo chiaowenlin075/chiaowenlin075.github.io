@@ -211,7 +211,7 @@
                         <div class="project-hover">
                           <div class="project-hover-content group">
                             <button class="show-snake">LIVE</button>
-                            <a href="https://github.com/chiaowenlin075/Snake.js" target="_blank"><i class="fa fa-github">GitHub</i></a>
+                            <a href="https://github.com/chiaowenlin075/Snake" target="_blank"><i class="fa fa-github">GitHub</i></a>
                           </div>
                         </div>
                       </div>
@@ -304,10 +304,10 @@
 
     <script>
     (function(){
-      var game = new Snakes.View(new Snakes.Board(12, 0.5), $("#snake-game"));
+      var game = new Snakes.View(new Snakes.Board(12, 12), $("#snake-game"));
       $("body").on("click", ".show-snake", function(event){
         event.preventDefault();
-        var yPos = $(document).height() - $(".project-snake").position().top + 100;
+        var yPos = $(document).height() - $(".project-snake").position().top + 150;
         $(".snake").removeClass("hide").css({ "top": -yPos });
       });
       $(".snake").on("click", "i.close-snake", function(event){
