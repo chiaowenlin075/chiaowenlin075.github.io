@@ -82,6 +82,10 @@ section {
   padding: 60px 0 120px;
 }
 
+#contact {
+  padding-bottom: 80px;
+}
+
 aside {
   padding: 50px 0;
 }
@@ -92,6 +96,18 @@ aside {
 
 #mainNav {
   padding: 0 30px;
+}
+
+.footer {
+  background-color: #45AEA4;
+  padding: 10px;
+}
+
+.footer > p {
+  text-align: center;
+  font-size: 16px;
+  margin: 0;
+  color: #fff;
 }
 
 .navbar-brand {
