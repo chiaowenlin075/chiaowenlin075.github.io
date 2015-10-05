@@ -423,12 +423,14 @@ header .header-content .header-content-inner p {
   margin-right: 20px;
 }
 
-.project-hover-content > a:hover {
+.project-hover-content > a:hover,
+.project-hover-content > button:hover {
   position: relative;
   top: -3px;
 }
 
-.project-hover-content > a:active {
+.project-hover-content > a:active,
+.project-hover-content > button:active {
   position: relative;
   top: 3px;
 }
