@@ -1,0 +1,132 @@
+/* mobile */
+@media (min-width: 300px) {
+  .skill-box {
+    width: 50%;
+  }
+
+  #about > .profile-pics {
+    width: 200px;
+    margin: 0 calc(50% - 100px) 0 calc(50% - 100px);
+  }
+
+  #about [class*="profile-pic-"] {
+    margin: 0 auto;
+  }
+
+  .about-info {
+    width: 88%;
+    margin: 0 6% 0 6%;
+  }
+}
+
+/* medium */
+@media (min-width: 600px) {
+  .skill-box {
+    width: 25%;
+  }
+
+  #about > .profile-pics {
+    width: 200px;
+    margin: 0 40px 0 0;
+  }
+
+  .about-info {
+    width: calc(100% - 240px);
+    margin: 0;
+  }
+}
+
+/* large */
+@media (min-width: 900px) {
+  .skill-box {
+    width: 16.667%;
+  }
+
+  #about > .profile-pics {
+    width: 30%;
+    margin: 0 40px 0 6%;
+  }
+
+  .about-info {
+    width: calc(58% - 50px);
+    margin: 0 6% 0 0;
+    padding-top: 30px;
+  }
+
+  .about-pics > figure {
+    width: 33%;
+  }
+
+}
+
+/* responsive adjustment */
+/* small screens */
+@media screen and (max-width: 880px) {
+  html,
+  body {
+    margin: 0;
+  }
+
+  main {
+    z-index: 20;
+  }
+
+  navbar[role="header-navbar-dropdown"] {
+    border: 0;
+    background: #fff;
+  }
+
+  navbar[role="header-navbar-dropdown"] ul {
+    opacity: 0;
+    z-index: -1;
+    height: 0;
+    transition: opacity, z-index ease-in-out .8s;
+    transition: height top;
+    position: relative;
+    top: -40px;
+  }
+
+  navbar[role="header-navbar-dropdown"] label {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 2.25em;
+    padding: .45em;
+    font-size: 16px;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgba(69, 174, 164, 1);
+  }
+
+  navbar[role="header-navbar-dropdown"] label:after {
+    position: absolute;
+    right: 10px;
+    top: -12px;
+    content: "\2261";
+    font-size: 36px;
+    cursor: pointer;
+  }
+
+  navbar[role="header-navbar-dropdown"] input[type=checkbox]:checked ~ ul {
+    opacity: 1;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    transition: opacity, z-index ease-in-out .8s;
+    transition: height top;
+    box-sizing: border-box;
+    top: 0;
+    box-shadow: 0 0 3px 2px #eee;
+    background: rgba(253,253,249, 1);
+  }
+
+  navbar[role="header-navbar-dropdown"] input[type=checkbox]:checked ~ ul > li {
+    width: 100%;
+    opacity: .8;
+    text-align: center;
+  }
+
+  navbar[role="header-navbar-dropdown"] input[type=checkbox]:checked ~ ul > li:hover {
+    background: rgba(69, 174, 164, 0.2);
+  }
+}

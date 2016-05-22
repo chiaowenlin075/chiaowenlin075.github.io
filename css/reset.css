@@ -1,0 +1,41 @@
+html, body, head, header, navbar, ul, li, p, div, section, footer, main, img, nav,
+b, span, strong, a, h1, h2, h3, h4, h5, article, i, button, figure, figcaption {
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+
+  background: transparent
+}
+
+ a {
+   text-decoration: none;
+ }
+
+ ul, li {
+   list-style: none;
+ }
+
+ img {
+   width: 100px;
+   height: auto;
+   display: block;
+ }
+
+ .group:after {
+   content: "";
+   display: block;
+   clear: both;
+ }
+
+ button,
+ input[type="submit"] {
+   cursor: pointer;
+   outline: 0;
+   border: 0;
+   text-align: center;
+ }

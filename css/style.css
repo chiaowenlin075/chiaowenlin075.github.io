@@ -1,0 +1,323 @@
+/* application */
+body {
+  font-family: "Open Sans", "P22-underground", Arial, sans-serif;
+  vertical-align: baseline;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  background: rgba(253,253,249, 1);
+}
+
+/* navbar */
+navbar {
+  width: 100%;
+  height: 38px;
+}
+
+/* reusable */
+.section-header {
+  font-size: 22px;
+  text-align: center;
+  font-weight: 300;
+}
+
+.section-header-underline {
+  max-width: 60px;
+  border-color: #45AEA4;
+  border-width: 1px;
+  position: relative;
+  bottom: 4px;
+  margin-bottom: 20px;
+}
+
+/* custom dropdown navbar */
+body {
+  -webkit-animation: bugfix infinite 1s;
+}
+
+@-webkit-keyframes bugfix {
+  from {
+    padding: 0;
+  }
+  to {
+    padding: 0;
+  }
+}
+input[type=checkbox] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+label {
+  display: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* background for li / select */
+/* header-navbar-dropdown */
+navbar[role="header-navbar-dropdown"] {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background: rgba(253,253,249, 1);
+  width: 100%;
+  border-top: 5px rgba(69, 174, 164, 1) solid;
+}
+
+navbar[role="header-navbar-dropdown"] a,
+navbar[role="header-navbar-dropdown"] label {
+  text-decoration: none;
+  font: 14px "Open Sans";
+  transition: color .3s ease-in-out;
+}
+
+navbar[role="header-navbar-dropdown"] ul {
+  padding: 0;
+  margin: 0 auto;
+  width: 40%;
+  list-style: none;
+}
+
+navbar[role="header-navbar-dropdown"] ul > li {
+  float: left;
+  padding: .55em .55em;
+  width: 25%;
+  text-align: center;
+  transition: color ease-in-out .3s ;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+navbar[role="header-navbar-dropdown"] ul > li:hover a {
+  color: rgba(35, 81, 78, 1);
+  font-weight: bold;
+}
+
+/* Main content */
+main {
+  margin-top: 80px;
+  width: 100%;
+  min-height: 500px;
+}
+
+main > section {
+  margin: 40px 0 60px;
+}
+
+/* header */
+main > header {
+  margin: 40px 0 100px;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 48px;
+  margin-top: 20px;
+}
+
+.name > span {
+  margin: 0 8px;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  display: block;
+  text-align: center;
+}
+
+.about-pics {
+  margin-top: 40px;
+  padding: 0 15%;
+  display: none;
+}
+
+.about-pics > figure {
+  float: left;
+}
+
+.about-pic {
+  margin: auto;
+  box-shadow: 3px 3px 4px 2px #ccc;
+}
+
+.pic-NY {
+  width: 230px;
+  transform: rotate(3deg);
+}
+
+.pic-me-NY {
+  width: 170px;
+  transform: rotate(-5deg);
+}
+
+.pic-Taiwan {
+  width: 260px;
+  transform: rotate(-5deg);
+}
+
+/* about */
+#about {
+  padding: 0 10%;
+}
+
+.about-greeting {
+  display: block;
+  font-size: 26px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.profile-pics {
+  position: relative;
+  height: 281px;
+  width:  450px;
+  margin:0 auto;
+}
+
+.profile-pic {
+  position:absolute;
+  width: 200px;
+  box-shadow: 1px 1px 3px 2px #ccc;
+  left:0;
+}
+
+#about > figure {
+  display: block;
+  float: left;
+  min-width: 200px;
+  padding-top: 20px;
+}
+
+.about-info {
+  display: block;
+  float: left;
+  padding-top: 20px;
+}
+
+.about-info > p {
+  font-weight: 300;
+}
+
+.show-taiwan-pic {
+  color: rgb(136, 10, 55);
+  font-weight: 400;
+  cursor: pointer;
+  position: relative;
+}
+
+.show-taiwan-pic:before {
+  content: "";
+  opacity: 0;
+  z-index: -1;
+  height: 5px;
+  width: 10px;
+  position: absolute;
+  top: 30px;
+  left: 19px;
+  border-bottom: 8px solid #000;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  box-sizing: border-box;
+  transition: opacity 500ms ease, top 500ms ease;
+}
+
+.show-taiwan-pic:after {
+  opacity: 0;
+  z-index: -1;
+  background-image: url('./../image/taiwan.jpg');
+  background-size: cover;
+  top: 20px;
+  right: -95px;
+  border-radius: 5px;
+  padding: 80px 120px;
+  content: "";
+  position: absolute;
+  box-shadow: 3px 3px 4px 2px #ccc;
+  transition: opacity 500ms ease, top 500ms ease;
+}
+
+.show-taiwan-pic:hover:after {
+  opacity: 1;
+  z-index: 10;
+  top: 30px;
+}
+
+.show-taiwan-pic:hover:before {
+  opacity: 1;
+  z-index: 10;
+  top: 22px;
+}
+
+/* skills */
+#skills {
+  padding: 0 15%;
+}
+
+.skill-box {
+  font-size: 15px;
+  font-weight: 300;
+  margin: 20px 0;
+  height: 80px;
+  display: block;
+  float: left;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.skill-pic {
+  width: 50px;
+  margin: 0 auto;
+}
+
+.skill-box > h4 {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* contact */
+#contact {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.contact-icons {
+  display: inline-block;
+}
+
+.contact-icons > a {
+  display: block;
+  float: left;
+}
+
+.contact-icons > *:not(:last-child) {
+  margin-right: 18px;
+}
+
+.resume {
+  display: block;
+  background: #eee;
+  padding: 5px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  top: 18px;
+}
+
+/* footer */
+footer {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 10px 0 5px;
+  border-bottom: 5px rgba(69, 174, 164, 1) solid;
+}

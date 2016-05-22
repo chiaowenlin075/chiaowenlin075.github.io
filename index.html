@@ -1,342 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Chiao-Wen Lin</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
-
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Overlock|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic|Averia+Sans+Libre' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
-    <link rel="stylesheet" href="css/snake.css" type="text/css">
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/reset.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="css/sprite.css" type="text/css">
+  <link rel="stylesheet" href="css/responsive.css" type="text/css">
+  <link rel="stylesheet" href="css/animation.css" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Overlock|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://use.typekit.net/c/a28055/1w;p22-underground,2,P22:R:n3,P24:R:n5,P25:R:n6,P26:R:n9/l" media="all">
+  <title>Chiao-Wen Lin</title>
 </head>
-
-<body id="page-top">
-
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Chiao-Wen Lin</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#skills">Skills</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#projects">Projects</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+<body id="home">
+  <script src="js/jquery.js"></script>
+  <script src="js/animation.js"></script>
+  <navbar id="navbar" role="header-navbar-dropdown">
+    <input type="checkbox" id="button">
+    <label for="button" onclick></label>
+    <ul class="group">
+        <li class="page-scroll"><a href="#home">Home</a></li>
+        <li class="page-scroll"><a href="#about">About</a></li>
+        <li class="page-scroll"><a href="#skills">Skills</a></li>
+        <!-- <li class="page-scroll"><a href="#projects">Projects</a></li> -->
+        <li class="page-scroll"><a href="#contact">Contact</a></li>
+    </ul>
+  </navbar>
+  <main>
     <header>
-        <div class="header-content">
-            <div class="header-content-inner group">
-              <figure class="profile-pic">
-                <img src="./img/cwlin.jpg">
-              </figure>
-              <figcaption class="header-content-inner-info">
-                <h3><span>Hello, </span>I'm Chiao-Wen Lin</h3>
-                <p>I'm a NY based software engineer</p>
-              </figcaption>
-            </div>
-        </div>
+      <h1 class="name bounce">Leah<span>(Chiao-Wen)</span>Lin</h1>
+      <sub class="subtitle">Software &#8226; Web Developer @ Bloomberg LP <i class="icon icon-normal icon-location-normal hatch"></i>New York Based</sub>
+      <div class="about-pics group">
+        <figure>
+          <img class="about-pic pic-NY" src="./image/NY.jpg" />
+        </figure>
+        <figure>
+          <img class="about-pic pic-me-NY" src="./image/lovewall.jpg" />
+        </figure>
+        <figure>
+          <img class="about-pic pic-Taiwan" src="./image/taiwan.jpg" />
+        </figure>
+      </div>
     </header>
 
-    <section class="bg-primary" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">ABOUT ME</h2>
-                    <hr class="light">
-                    <p class="text-faded">
-                      Hello there! I'm a New York-based web developer experienced in Ruby on Rails, JavaScript(Backbone), HTML / CSS.
-                      I enjoy solving problems, tackling difficult challenges, and learning new technologies.
-                      My MS degree in Mechanical engineering at UCLA has strengthened my interest in programming.
-                      After graduating, I decided to pursue programming as my career, and as my life style!
-                      Besides coding, I enjoy music, accordion and also traveling!
-                    </p>
-                    <div class="about-pics">
-                      <img src="img/about/accordion.jpg" alt="accordion">
-                      <img src="img/about/travel1.jpg" alt="UK">
-                      <img src="img/about/travel2.jpg" alt="Taiwan">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section id="about" class="group">
+      <h2 class="section-header">A Little Bit About Myself</h2>
+      <hr class="section-header-underline">
+      <figure class="profile-pics">
+        <img class="profile-pic" src="./image/disney.jpg">
+        <img class="profile-pic" src="./image/cwlin.jpg">
+        <img class="profile-pic" src="./image/ca-life.jpg">
+        <img class="profile-pic" src="./image/williamsburg.jpg">
+      </figure>
+      <figcaption class="about-info">
+        <span class="about-greeting">Hello, </span>
+        <p>
+          I'm experienced in JavaScript, Ruby on Rails and C++.</br>
+          I enjoy solving problems, tackling difficult challenges, and learning new technologies.</br>
+          I value user experience, teamwork and code quality.</br>
+          I am originally from <span class="show-taiwan-pic">Taiwan</span>!</br>
+          Besides coding, I love Psychology, music, animals and vegan diet!</br>
+        </p>
+      </figcaption>
     </section>
 
-    <section id="skills">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Skills</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="rows">
-              <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="skill-box">
-                        <img class="skill-pic wow bounceIn text-primary" src="./img/ruby.png"></i>
-                        <h3>Ruby</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="skill-box">
-                        <img class="skill-pic wow bounceIn text-primary" data-wow-delay=".1s" src="./img/rails.png"></i>
-                        <h3>Ruby on Rails</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="skill-box">
-                        <img class="skill-pic wow bounceIn text-primary" data-wow-delay=".2s" src="./img/rspec.png"></i>
-                        <h3>RSpec</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="skill-box">
-                      <img class="skill-pic wow bounceIn text-primary" data-wow-delay=".3s" src="./img/javascript.png"></i>
-                      <h3>javaScript</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="skill-box">
-                      <img class="skill-pic wow bounceIn text-primary" data-wow-delay=".4s" src="./img/backbone.png"></i>
-                      <h3>Backbone</h3>
-                    </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="skill-box">
-                      <img class="skill-pic wow bounceIn text-primary" data-wow-delay=".5s" src="./img/jquery.png"></i>
-                      <h3>jQuery</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="skill-box">
-                      <img class="skill-pic wow bounceIn text-primary" data-wow-delay=".6s" src="./img/postgresql.png"></i>
-                      <h3>Postgresql</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="skill-box">
-                      <img class="skill-pic wow bounceIn text-primary" data-wow-delay=".7s" src="./img/HTML5.png"></i>
-                      <h3>HTML5</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="skill-box">
-                      <img class="skill-pic wow bounceIn text-primary" data-wow-delay=".8s" src="./img/css.png"></i>
-                      <h3>CSS</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="skill-box">
-                      <img class="skill-pic wow bounceIn text-primary" data-wow-delay=".9s" src="./img/git.png"></i>
-                      <h3>Git</h3>
-                    </div>
-                </div>
-              </div>
-            </div>
-        </div>
+    <section id="skills" class="group">
+      <h2 class="section-header">Skills</h2>
+      <hr class="section-header-underline">
+      <div class="skill-box">
+        <img class="skill-pic" src="./image/javascript.png"></i>
+        <h4>JavaScript</h3>
+      </div>
+
+      <div class="skill-box">
+        <img class="skill-pic" src="./image/reactjs.png"></i>
+        <h4>React.JS</h3>
+      </div>
+
+      <div class="skill-box">
+        <img class="skill-pic" src="./image/backbone.png"></i>
+        <h4>Backbone.JS</h3>
+      </div>
+
+      <div class="skill-box">
+          <img class="skill-pic" src="./image/cpp.png"></i>
+          <h4>C++</h3>
+      </div>
+
+      <div class="skill-box">
+          <img class="skill-pic" src="./image/ruby.png"></i>
+          <h4>Ruby</h3>
+      </div>
+
+      <div class="skill-box">
+          <img class="skill-pic" src="./image/rails.png"></i>
+          <h4>Ruby on Rails</h3>
+      </div>
+
+      <div class="skill-box">
+          <img class="skill-pic" src="./image/rspec.png"></i>
+          <h4>RSpec</h3>
+      </div>
+
+      <div class="skill-box">
+        <img class="skill-pic" src="./image/jquery.png"></i>
+        <h4>jQuery</h3>
+      </div>
+
+      <div class="skill-box">
+        <img class="skill-pic" src="./image/postgresql.png"></i>
+        <h4>Postgresql</h3>
+      </div>
+
+      <div class="skill-box">
+        <img class="skill-pic" src="./image/HTML5.png"></i>
+        <h4>HTML5</h3>
+      </div>
+
+      <div class="skill-box">
+        <img class="skill-pic" src="./image/css.png"></i>
+        <h4>CSS</h3>
+      </div>
+
+      <div class="skill-box">
+        <img class="skill-pic" src="./image/git.png"></i>
+        <h4>Git</h3>
+      </div>
     </section>
-
-    <section class="no-padding" id="projects">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
-                  <div class="project-box group">
-                      <div class="project-pic">
-                        <img src="img/project/mumblr.gif" class="img-responsive" alt="">
-                        <figcaption>Check out here!</figcaption>
-                        <div class="project-hover">
-                          <div class="project-hover-content group">
-                            <a href="http://www.mumblrr.com" target="_blank">LIVE</a>
-                            <a href="https://github.com/chiaowenlin075/mumblr" target="_blank"><i class="fa fa-github">GitHub</i></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="project-box-caption">
-                        <div class="project-name text-faded">
-                            Mumblr <span>(Rails, Backbone.js)</span>
-                        </div>
-                        <div class="project-description">
-                            <p>
-                              A blog web app inspired by tumblr and built on Rails and Backbone<br>
-                              •	Utilizes nested composite views to improve garbage collection<br>
-                              •	DRYs code with concise views, partials and mixins<br>
-                              • Provides real time updates by using event listeners<br>
-                              • Maintains code quality with critical test spec<br>
-                            </p>
-                        </div>
-                     </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6 project-snake">
-                  <div class="project-box group">
-                      <div class="project-pic">
-                        <img src="img/project/snake.png" class="img-responsive" alt="">
-                        <figcaption>Check out here!</figcaption>
-                        <div class="project-hover">
-                          <div class="project-hover-content group">
-                            <button class="show-snake">LIVE</button>
-                            <a href="https://github.com/chiaowenlin075/Snake" target="_blank"><i class="fa fa-github">GitHub</i></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="project-box-caption">
-                        <div class="project-name text-faded">
-                            Snake <span>(JavaScript, jQuery, CSS)</span>
-                        </div>
-                        <div class="project-description">
-                            <p>
-                              A browser-based classic snake game written primarily with JavaScript and jQuery<br>
-                              •	Object-oriented design keeps structure clean and ties functionality to individual game components<br>
-                              •	Designs snake and apple with pure CSS <br>
-                            </p>
-                        </div>
-                     </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6">
-                  <div class="project-box group">
-                      <div class="project-pic">
-                        <img src="img/project/rails_lite.png" class="img-responsive" alt="">
-                        <figcaption>Check out here!</figcaption>
-                        <div class="project-hover">
-                          <div class="project-hover-content group">
-                            <a href="https://github.com/chiaowenlin075/Rails-Lite" target="_blank"><i class="fa fa-github">GitHub</i></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="project-box-caption">
-                        <div class="project-name text-faded">
-                            Rails Lite <span>(Ruby)</span>
-                        </div>
-                        <div class="project-description">
-                            <p>
-                              A server side framework inspired by the functionality of Ruby on Rails writted in Ruby<br>
-                              •	Leverage Ruby's extensive metaprogramming and reflexive to create a interface enable the communication between MVC.
-                            </p>
-                        </div>
-                     </div>
-                  </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+    <!-- <section id="projects">
+      <h2 class="section-header">Projects</h2>
+      <hr class="section-header-underline">
+    </section> -->
     <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                  <a href="mailto:leah.cwlin@gmail.com"><i class="fa fa-envelope-o fa-4x wow bounceIn"></i></a>
-                  <a href="https://www.linkedin.com/in/leahlin" target="_blank"><i class="fa fa-linkedin-square fa-4x wow bounceIn"></i></a>
-                  <a href="https://github.com/chiaowenlin075" target="_blank"><i class="fa fa-github fa-4x wow bounceIn"></i></a>
-                </div>
-                <div class="col-lg-4 text-center">
-                  <a href="./docs/resume-Chiao-Wen_Lin.pdf" target="_blank"><i class="fa fa-file-text-o fa-4x wow bounceIn" data-wow-delay=".1s">Download my Resume</i></a>
-                </div>
-            </div>
-        </div>
+      <h2 class="section-header">Let's Talk!</h2>
+      <hr class="section-header-underline">
+      <div class="contact-icons group">
+        <a href="mailto:leah.cwlin@gmail.com"><i class="icon icon-big icon-envelop"></i></a>
+        <a href="https://www.linkedin.com/in/leahlin" target="_blank"><i class="icon icon-big icon-linkedin-big"></i></a>
+        <a href="https://github.com/chiaowenlin075" target="_blank"><i class="icon icon-big icon-github-big"></i></a>
+        <a class="resume" href="./docs/resume-Chiao-Wen_Lin_v3.pdf" target="_blank">Resume</a>
+      </div>
     </section>
-
-    <footer class="footer group">
-      <p>
-        &#169; 2015 Chiao-Wen Lin All Right Reserved
-      </p>
-    </footer>
-    <div class="snake hide">
-      <div class="block-modal"></div>
-      <i class="close-snake">&times;</i>
-      <section id="snake-game">
-        <h1>Snake</h1>
-        <div class="snake-content"></div>
-      </section>
-    </div>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
-    <script src="js/underscore.js"></script>
-    <script src="snake/snake-core.js"></script>
-    <script src="snake/snake-view.js"></script>
-
-    <script>
-    (function(){
-      var game = new Snakes.View(new Snakes.Board(12, 12), $("#snake-game"));
-      $("body").on("click", ".show-snake", function(event){
-        event.preventDefault();
-        var yPos = $(document).height() - $(".project-snake").position().top + 150;
-        $(".snake").removeClass("hide").css({ "top": -yPos });
-      });
-      $(".snake").on("click", "i.close-snake", function(event){
-        event.preventDefault();
-        $(".snake").addClass("hide");
-      });
-
-    })();
-    </script>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-68624340-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-
+  </main>
+  <footer class="footer group">
+    <p>
+      &#169; 2016 All Rights Reserved. Made With  <i class="icon icon-heart-small icon-small animated infinite bouncing"></i>  By Leah
+    </p>
+  </footer>
 </body>
-
 </html>
