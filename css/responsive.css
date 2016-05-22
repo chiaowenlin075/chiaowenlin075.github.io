@@ -4,8 +4,8 @@
     width: 50%;
   }
 
-  .subtitle {
-    padding: 0 35px;
+  .subtitle > span {
+    margin: 0 60px;
   }
 
   #about > .profile-pics {
@@ -29,8 +29,8 @@
     width: 25%;
   }
 
-  .subtitle {
-    padding: 0;
+  .subtitle > span {
+    margin: 0;
   }
 
   #about > .profile-pics {
